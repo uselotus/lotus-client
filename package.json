@@ -15,7 +15,7 @@
   },
   "type": "module",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

@@ -25,12 +25,16 @@ const lotus = new Lotus(api_key, {
 ## Currently Supported Methods
 
 ```
-1. TrackEvent
-3. Get Customer Details
-4. Create Customer
-8. Get All Subscriptions
-10. Get All Plans
-11. Get Customer Access
+
+1. Get Customer Details
+2. Get All Subscriptions
+3. Get All Plans
+4. Get Plan Details
+5. List All Invoices
+6. Get Invoice Details
+7. Get Invoice PDF Details
+8. Get Feature Access
+9. Get Metric Access
 ```
 
 ## Making calls
