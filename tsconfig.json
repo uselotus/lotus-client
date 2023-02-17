@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "es6",
-    "moduleResolution": "classic",
+    "moduleResolution": "node",
     "declaration": true,
     "esModuleInterop": true,
     "outDir": "./dist",
