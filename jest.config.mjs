@@ -1,8 +1,14 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
   clearMocks: true,
   coverageDirectory: 'coverage',
-  moduleFileExtensions: ['js', 'jsx', 'mjs'],
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+  },
+  moduleFileExtensions: ['js', 'jsx', 'mjs', 'ts'],
   testEnvironment: 'jsdom',
+  preset: 'ts-jest',
   testEnvironmentOptions: { resources: 'usable' },
-  testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(mjs?|jsx?|js?|tsx?|ts?)$',
+  testMatch: ['<rootDir>/__tests__/index.test.ts'],
+  setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
 }

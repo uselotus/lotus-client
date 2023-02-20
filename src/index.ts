@@ -48,9 +48,9 @@ function convertKeysToCamelCase<T>(data: T): T {
 async function callReq<T>(req) {
   try {
     const response = await axios(req)
+
     return wrapResponse<T>(response)
   } catch (error) {
-    // console.log(error.response.data);
     throw new Error(error)
   }
 }
@@ -61,7 +61,7 @@ class Lotus {
   private readonly timeout: boolean
   private readonly flushAt: number
   private readonly flushInterval: any
-  private readonly headers: { 'X-API-KEY': any }
+  private readonly headers: { 'X-API-KEY': string }
   private queue: any[]
   private readonly enable: boolean
   private timer: number
@@ -101,8 +101,8 @@ class Lotus {
     return {
       method: method,
       url: this.getRequestUrl(url),
-      params: params,
-      data: data,
+      params: params === undefined ? {} : params,
+      data: data === undefined ? {} : data,
       headers: this.headers,
     }
   }
@@ -257,12 +257,12 @@ class Lotus {
    * @param message
    */
   async getCustomer(
-    message: CustomerDetailsParams,
+    params: CustomerDetailsParams,
   ): Promise<AxiosResponse<ListCustomerResponse>> {
-    eventValidation(message, ValidateEventType.customerDetails)
+    eventValidation(params, ValidateEventType.customerDetails)
     const req = this.getRequestObject(
       REQUEST_TYPES.GET,
-      REQUEST_URLS.GET_CUSTOMER_DETAIL(message.customerId),
+      REQUEST_URLS.GET_CUSTOMER_DETAIL(params.customerId),
     )
     this.setRequestTimeout(req)
     return callReq(req)

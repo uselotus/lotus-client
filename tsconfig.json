@@ -9,5 +9,5 @@
     "lib": ["es2016", "dom"],
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "__tests__/index.test.ts"]
 }
