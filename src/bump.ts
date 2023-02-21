@@ -13,9 +13,6 @@ type TVersionBumpType = 'patch' | 'major' | 'minor'
     'npx openapi-typescript https://raw.githubusercontent.com/uselotus/lotus/main/docs/openapi.yaml --output ./src/types.ts',
   )
 
-  //   execSync(
-  //     "npx openapi-typescript https://raw.githubusercontent.com/uselotus/lotus/main/docs/openapi.yaml --output types.ts"
-  //   );
   let result: string = ''
   try {
     // Convert the generated code to use camel case naming
@@ -37,11 +34,11 @@ type TVersionBumpType = 'patch' | 'major' | 'minor'
   // commit what we already have to git because npm-bump creates a new commit too
   execSync('git add .')
   execSync("git commit -m 'update the types' ")
-  //   if (versionBumpType === "patch") {
-  //     execSync("npx npm-bump patch");
-  //   } else if (versionBumpType === "minor") {
-  //     execSync("npx npm-bump minor");
-  //   } else {
-  //     execSync("npx npm-bump major");
-  //   }
+    if (versionBumpType === "patch") {
+      execSync("npx npm-bump patch");
+    } else if (versionBumpType === "minor") {
+      execSync("npx npm-bump minor");
+    } else {
+      execSync("npx npm-bump major");
+    }
 })()
